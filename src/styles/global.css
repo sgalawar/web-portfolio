@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  /* border: 1px solid red !important; */
+}
+
+/* Set the background and text colors */
+html {
+  @apply bg-[#181818] text-[#EDEBD7] font-sans lowercase;
+}
+
+body {
+	width: 85vw;
+	height: 100%;
+  margin-left: auto;
+}
+
+/* experience ticker */
+@keyframes ticker {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+#ticker {
+  display: flex;
+  animation: ticker 15s linear infinite;
+}
+
+/* Custom fade-in animation */
+@layer utilities {
+  .fade-in {
+    opacity: 0;
+    transform: translateY(5px);
+    animation: fade-in 2s ease-out forwards;
+  }
+
+  @keyframes fade-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
