@@ -1,50 +1,60 @@
 ---
 const projects = [
   { name: "Icy Montreal", url: "https://www.icymontreal.com" },
-  { name: "GitHub", url: "https://github.com/sgalawar" },
+  { name: "Badawi Coffee", url: "https://www.badawicoffee.com" },
 ];
 
 const socials = [
   { name: "Instagram", url: "https://instagram.com/curio.sou" },
   { name: "LinkedIn", url: "https://www.linkedin.com/in/souheilalawar/" },
+  { name: "GitHub", url: "https://github.com/sgalawar" },
 ];
 ---
 
 <div class="flex flex-col space-y-6 p-10 fade-in">
   <!-- Welcome message and my name -->
   <div class="w-fit">
-    <p class="">you're now in the domains of</p>
+    <p>you're now in the domains of</p>
     <h1 class="text-5xl font-bold tracking-tight mt-2">souheil al-awar</h1>
     <p class="mt-2">finder of solutions / computer wiz 🧙‍♂️</p>
-    <div class="w-24 h-1 bg-gray-500 mt-2"></div> <!-- Divider -->
+    <div class="w-24 h-1 bg-gray-500 mt-4"></div> <!-- Divider -->
   </div>
 
-  <!-- Recent Projects (Automatically Shows Latest Project) -->
-  <h2 class="text-xl mt-4">i am qualified to do a number of things,</h2>
+  <!-- Start of About me -->
+  <h2 class="text-xl mt-4">i am <b>qualified</b> to do a handful of things</h2>
 
   <!-- Experience Ticker -->
-  <div class="w-full overflow-hidden bg-gray-900 py-2">
-    <div id="ticker" class="flex whitespace-nowrap gap-8 text-white text-sm font-medium">
-      <span>📈 Bitcoin: $42,300</span>
-      <span>📉 Ethereum: $3,100</span>
-      <span>📈 Tesla: $210.45</span>
-      <span>📉 Apple: $170.55</span>
-      <span>📈 Google: $2,950.20</span>
+  <div class="w-lg overflow-hidden bg-white py-2 rounded-lg shadow-md">
+    <div id="ticker" class="flex whitespace-nowrap gap-8 text-black text-sm font-medium">
+      <span class="xp-item">💻 Part-time web dev — built large-scale websites monthly in Montreal.</span> 
+      <span class="xp-item">🚀 Freelance web dev — 24-48hr custom sites for personal & business needs.</span>
+      <span class="xp-item">❄️ Built <a href={projects[0].url}>IcyMontreal.com</a> — live rink status, updated almost hourly.</span>
+      <span class="xp-item">☕ Family-owned coffee biz — <a href={projects[1].url}>BadawiCoffee.com</a>, selling Turkish coffee pots.</span>
+      <span class="xp-item">📢 Marketing Liaison — bridging brands & audiences with strategy.</span>
+      <span class="xp-item">🎾 Tennis coach since 2018 — helping players level up their game.</span>
+      <span class="xp-item">🖥️ Built & fixed PCs since childhood — tech passion from day one.</span>
+      <span class="xp-item">🧼 Hard work built my foundation — cleaning, lifting, busboying in Canada.</span>
     </div>
-  </div>  
+  </div>
+
+  <div class="w-24 h-1 bg-gray-500"></div> <!-- Divider -->
+
+  <!-- Projects previews -->
+  <h2 class="text-xl mt-4">i like <b>creating</b> things that are at least <b>useful</b>, <b>artistic</b>, or <b>challenging</b></h2>
 
   <div class="space-y-3">
     {projects.length > 0 && (
       <div class="flex flex-col items-start space-y-4">
         <a href={projects[0].url} class="hover:text-gray-400 transition-all text-lg">
-          {projects[0].name}
+          ⛸️ <u>{projects[0].name}</u> 
         </a>
-        <div class="w-[500px] h-[200px] border border-gray-500 overflow-hidden rounded-lg shadow-md relative">
+        <div class="w-lg h-[200px] border border-gray-500 overflow-hidden rounded-lg shadow-md relative">
           <iframe 
             src={projects[0].url} 
-            class="w-[832px] h-[335px] scale-[0.6] origin-top-left absolute top-0 left-0 border-none">
+            class="w-[850px] h-[335px] scale-[0.6] origin-top-left absolute top-0 left-0 border-none">
           </iframe>
         </div>
+        📦 stack - js, node, html, css, leaflet.js, netlify, git
       </div>
     )}
   </div>
@@ -52,11 +62,11 @@ const socials = [
   <!-- Archived Projects -->
   {projects.length > 0 && (
     <>
-      <h2 class="text-2xl mt-6">archived projects</h2>
+      <h2 class="text-xl">and, of course, for <b>educational</b> purposes as well</h2>
       <div class="space-y-2">
-        {projects.slice(1).map((project) => (
-          <a href={project.url} class="block hover:text-gray-400 transition-all">
-            <span>{project.name}</span>
+        {socials.slice(2).map((social) => (
+          <a href={social.url} class="hover:text-gray-400 transition-all text-lg">
+            <i class="fa-brands fa-github"></i> <u>{social.name} repositories</u>
           </a>
         ))}
       </div>
@@ -66,10 +76,9 @@ const socials = [
   <div class="w-24 h-1 bg-gray-500"></div> <!-- Divider -->
 
   <!-- Contacts -->
-  <h2 class="text-2xl mt-6">contacts</h2>
+  <h2 class="text-xl mt-4">here's some points of <b>contact</b> if you want to talk</h2>
   <div class="flex space-x-4">
-    {socials.map((social) => (
-      <a href={social.url} class="hover:text-gray-400 transition-all">{social.name}</a>
-    ))}
+    <a href={socials[0].url} class="hover:text-gray-400 transition-all"><i class="fa-brands fa-instagram"></i> <u>{socials[0].name}</u></a>
+    <a href={socials[1].url} class="hover:text-gray-400 transition-all"><i class="fa-brands fa-linkedin"></i> <u>{socials[1].name}</u></a>
   </div>
 </div>
